@@ -8,7 +8,7 @@ class TestFlask(unittest.TestCase):
 
     def test_home(self):
         res = self.client.get("/")
-        self.assertEqual(res.status_code, 202)
+        self.assertEqual(res.status_code, 200)
 
     def test_test(self):
         res = self.client.get("/test")

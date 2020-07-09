@@ -11,8 +11,8 @@ script:
 
 after_success:
   - echo "We passed! This is where we would deploy!"
-  - echo $(TEST_VAR)
+  - echo $TEST_VAR
 
 after_failure:
   - echo "Oh no... Something went wrong, DON'T DEPLOY!"
-  - echo $(TEST_VAR)
+  - echo $TEST_VAR
