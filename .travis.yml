@@ -4,13 +4,13 @@ services:
 # Default travis command
 install:
   # - pip install -r requirements.txt
-  - make dockerbuild
+  - make dockerimage
 
 script:
   - make test
 
 after_success:
-  - make deploy
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then make deploy; fi
 
 after_failure:
   - echo "Oh no... Something went wrong, DON'T DEPLOY!"
