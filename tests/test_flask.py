@@ -6,12 +6,16 @@ class TestFlask(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
 
-    def test_home(self):
+    def test_index(self):
         res = self.client.get("/")
         self.assertEqual(res.status_code, 200)
 
     def test_test(self):
         res = self.client.get("/test")
+        self.assertEqual(res.status_code, 200)
+
+    def test_home(self):
+        res = self.client.get("/home")
         self.assertEqual(res.status_code, 200)
 
     def test_404(self):
