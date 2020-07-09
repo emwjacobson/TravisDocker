@@ -16,4 +16,4 @@ def test():
 
 @app.errorhandler(404)
 def not_found(error):
-    return "Page not found."
+    return "Page not found.", 404
