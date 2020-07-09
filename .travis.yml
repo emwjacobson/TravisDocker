@@ -1,9 +1,7 @@
 services:
   - docker
 
-# Default travis command
 install:
-  # - pip install -r requirements.txt
   - make dockerimage
 
 script:
