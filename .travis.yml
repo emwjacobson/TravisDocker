@@ -10,7 +10,7 @@ script:
   - make test
 
 after_success:
-  - echo "We passed! This is where we would deploy!"
+  - make deploy
 
 after_failure:
   - echo "Oh no... Something went wrong, DON'T DEPLOY!"

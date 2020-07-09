@@ -1,9 +1,13 @@
-IMAGE_NAME=test
+IMAGE_NAME=emwjacobson/dockertest
 
-dockerbuild:
+dockerimage:
 	docker build -t $(IMAGE_NAME):latest .
 
-test: dockerbuild
+test: dockerimage
 	docker run --rm -it $(IMAGE_NAME):latest python3 -m unittest
 
-.PHONY: dockerbuild test
+deploy: dockerimage
+	docker login -u emwjacobson -p $(DOCKER_HUB_TOKEN)
+	docker push $(IMAGE_NAME):latest
+
+.PHONY: dockerimage test
